@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E1 array de objetos</title>
+    <link rel="stylesheet" href="style.css">
+    <title>E2 Eventos y manipulación</title>
 </head>
 <body>
-    <h1 style="text-align: center;">E1 array de objetos</h1>
+    <h1 class="h1-entrega">E2 Eventos y manipulación</h1>
     
+    <div class="center-flex">
+        <div class="card" id="card">
+
+            <form class="form" id="form" novalidate>
+                <input type="number" class="input" id="input_pizza" placeholder="ingrese el id de una pizza">
+                <small></small>
+                <button type="submit" id="pizza_enviar" class="boton">Enviar</button>
+            </form>    
+
+            <h2 class="pizza-nombre" id="pizzaName"></h2>
+            <h4 class="pizza-precio"></h4>
+        </div>
+
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>

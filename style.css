@@ -1,0 +1,78 @@
+*{
+    background-color: rgb(75, 75, 75);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.h1-entrega{
+    text-align: center;
+    color: #fafafa;
+}
+
+.center-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+
+.card{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 21rem;
+    width: 15rem;
+    background-color: rgb(44, 42, 42);
+    border-radius: 2rem;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(44, 42, 42);
+    border-radius: 2rem;
+
+}
+
+.input{
+    text-align: center;
+    width: 12rem;
+    margin: 1rem;
+    height: 1.5rem;
+    background-color: #fafafa;
+    border-radius: 10px;
+}
+
+.success{
+    
+}
+
+.error{
+    color: red;
+    background-color: rgb(44, 42, 42);
+    padding: 1rem;
+}
+
+.boton{
+    background-color: #fafafa;
+    width: 9rem;
+    height: 2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.pizza-nombre{
+    padding: 2rem;
+    color: #fafafa;
+    background-color: rgb(44, 42, 42);
+}
+
+.pizza-precio{
+    padding: 2rem;
+    color: #fafafa;
+    background-color: rgb(44, 42, 42);
+}

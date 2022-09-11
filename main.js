@@ -7,41 +7,91 @@ const pizzas = [
     {id: 6, nombre: "Diávola", ingredientes: ["mozzarella", "chorizo", "salami", "ají"], precio: 800}
 ]
 
-console.log("---------------------------------------------------")
-// a)
+const form = document.getElementById('form')
+const idInput = document.getElementById('input_pizza')
+const pizzaName = document.getElementById('pizzaName')
 
-console.log("las pizzas con id impar son:")
 
-let pizzasImpar = pizzas.filter( (pizza) => pizza.id % 2 != 0 )
 
-pizzasImpar.forEach( (pizza) => console.log(pizza.nombre) )
+const checkIdInput = () => {
+    let valid = false
 
-console.log("---------------------------------------------------")
-// b)
 
-let resultado = pizzas.some( (pizza) => pizza.precio < 600 )
+    const idPizza = idInput.value.trim()
 
-if(resultado){
-    console.log("hay pizzas con un precio menor a $600")
-}else{
-    console.log("no hay pizzas con un precio menor a $600")
+    if(isEmpty(idPizza)){
+        showError(idInput, "ERROR debe completar el campo")
+    }else if(!isBetween(idPizza)){
+        showError(idInput, "ERROR el numero ingresado no es valido")
+    }else{
+        showSuccsess(idInput)
+        valid = true
+    }
+    return valid
 }
 
-console.log("---------------------------------------------------")
-// c)
+const isEmpty = (value) => value === "";
 
-pizzas.forEach( (pizza) => {
-    console.log(`la pizza ${pizza.nombre} tiene un precio de $${pizza.precio}`)
-});
+const isBetween = (value) =>{
+    const existPizza = pizzas.some(pizza=> pizza.id === Number(value)) 
+    return existPizza
+}
 
-console.log("---------------------------------------------------")
-// d)
+const showError = (input, message) =>{
+    const formField = input.parentElement;
+    const error = formField.querySelector('small')
+    error.classList.remove('success')
+    error.classList.add('error')
+    error.textContent = message
+}
 
-pizzas.forEach( (pizza) => {
-    console.log(`los ingredientes de la pizza ${pizza.nombre} son:`)
-    
-    pizza.ingredientes.forEach( (ingrediente) => {
-        console.log(ingrediente)
-    })
-    console.log("---------------------------------------------------")
+const showSuccsess = (input, message) =>{
+    const formField = input.parentElement;
+    const error = formField.querySelector('small')
+    error.classList.remove('error')
+    error.classList.add('success')
+    error.textContent = ""
+}
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    let isIdValid = checkIdInput();
+
+    if(isIdValid){
+
+        const idPizza = idInput.value.trim()
+        changePizzaName(idPizza, form)
+        changePizzaPrice(idPizza, form)
+        
+
+    }else{
+        deletePizzaName(form)
+        deletePizzaPrice(form)
+
+    }
 })
+
+const changePizzaName = (input, form) =>{
+    const formField = form.parentElement;
+    const pizza = pizzas.find((e) => e.id == input)
+    const name = formField.querySelector('h2')
+    name.textContent = pizza.nombre
+}
+const changePizzaPrice = (input, form) =>{
+    const formField = form.parentElement;
+    const pizza = pizzas.find((e) => e.id == input)
+    const name = formField.querySelector('h4')
+    name.textContent = "$"+pizza.precio
+}
+
+const deletePizzaName = (form) => {
+    const formField = form.parentElement;
+    const name = formField.querySelector('h2')
+    name.textContent = ""
+}
+const deletePizzaPrice = (form) => {
+    const formField = form.parentElement;
+    const name = formField.querySelector('h4')
+    name.textContent = ""
+}
