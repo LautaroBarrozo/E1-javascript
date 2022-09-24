@@ -5,25 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>E2 Eventos y manipulación</title>
+    <title>E3 Local Storage</title>
 </head>
 <body>
-    <h1 class="h1-entrega">E2 Eventos y manipulación</h1>
+    <h1 class="h1-entrega">E3 Local Storage</h1>
     
     <div class="center-flex">
         <div class="card" id="card">
 
-            <form class="form" id="form" novalidate>
-                <input type="number" class="input" id="input_pizza" placeholder="ingrese el id de una pizza">
-                <small></small>
-                <button type="submit" id="pizza_enviar" class="boton">Enviar</button>
-            </form>    
 
-            <h2 class="pizza-nombre" id="pizzaName"></h2>
-            <h4 class="pizza-precio"></h4>
+            <div class="form-pizza-container">   
+                <h2 class="pizza-nombre" id="pizzaName"></h2>
+                <h3 class="pizza-ingredientes"></h3>
+                <h4 class="pizza-precio"></h4>
+            </div>
+
+            <div class="pizzaImage-center" id="pizzaImage-center">
+                
+            </div>
+
         </div>
 
+        <form class="form" id="form" novalidate>
+            <input type="number" class="input" id="input_pizza" placeholder="ingrese el id de una pizza">
+            <small></small>
+            <button type="submit" id="pizza_enviar" class="boton">Enviar</button>
+        </form>
+
     </div>
+
 
     <script src="main.js"></script>
 </body>
